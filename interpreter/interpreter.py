@@ -90,14 +90,14 @@ Press `CTRL-C` to exit.
 
 class Interpreter:
 
-  def __init__(self):
-    self.messages = []
+  def __init__(self, messages = [], auto_run=False, debug_mode=False):
+    self.messages = messages
     self.temperature = 0.001
     self.api_key = None
-    self.auto_run = False
+    self.auto_run = auto_run
     self.local = False
     self.model = "gpt-4"
-    self.debug_mode = False
+    self.debug_mode = debug_mode
     self.api_base = None # Will set it to whatever OpenAI wants
     self.context_window = 2000 # For local models only
     self.max_tokens = 750 # For local models only
@@ -339,6 +339,7 @@ class Interpreter:
 
           # Switch to GPT-4
           self.local = False
+          # self.model = "gpt-3.5-turbo"
           self.model = "gpt-4"
           self.verify_api_key()
 
