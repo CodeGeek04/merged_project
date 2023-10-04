@@ -716,6 +716,7 @@ class Interpreter:
     in_function_call = False
     llama_function_call_finished = False
     self.active_block = None
+    # print("RESPONSE: ", response)
 
     for chunk in response:
       if self.use_azure and ('choices' not in chunk or len(chunk['choices']) == 0):

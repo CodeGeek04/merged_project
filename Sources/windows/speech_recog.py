@@ -1,17 +1,5 @@
 import speech_recognition as sr
 from interpreter.interpreter import Interpreter
-import keyboard
-import json
-
-import whisper
-model = whisper.load_model("base")
-
-#try loading resp.txt
-try:
-    with open("resp.json", "r") as file:
-        context = json.load(file)
-except:
-    print("No Context Found")
 
 interpreter = Interpreter(auto_run = True, messages = context)
 

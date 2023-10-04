@@ -15,6 +15,7 @@ class MessageBlock:
 
   def update_from_message(self, message):
     self.content = message.get("content", "")
+    # print("CONTENT IS ::::", self.content)
     if self.content:
       self.refresh()
 
@@ -26,6 +27,7 @@ class MessageBlock:
     # De-stylize any code blocks in markdown,
     # to differentiate from our Code Blocks
     content = textify_markdown_code_blocks(self.content)
+    # print("CONTENT IS ::::", content)
     
     if cursor:
       content += "█"
